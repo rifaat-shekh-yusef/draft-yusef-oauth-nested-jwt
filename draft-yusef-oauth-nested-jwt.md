@@ -1,6 +1,6 @@
 ---
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
+title: "JSON Web Token (JWT) Embedded Tokens"
+abbrev: "JWT Embedded Tokens"
 category: info
 
 docname: draft-yusef-oauth-nested-jwt-latest
