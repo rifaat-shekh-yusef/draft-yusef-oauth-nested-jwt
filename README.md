@@ -1,6 +1,6 @@
-# TODO - Your title
+# JSON Web Token (JWT) Embedded Tokens
 
-This is the working area for the individual Internet-Draft, "TODO - Your title".
+This is the working area for the individual Internet-Draft, "JSON Web Token (JWT) Embedded Tokens".
 
 * [Editor's Copy](https://rifaat-shekh-yusef.github.io/ietf-draft-template/#go.draft-yusef-oauth-nested-jwt.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-yusef-oauth-nested-jwt)
