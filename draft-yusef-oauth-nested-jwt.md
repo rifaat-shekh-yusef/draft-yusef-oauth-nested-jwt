@@ -103,7 +103,7 @@ In some cases, the embedding of tokens into a new token could be done locally, i
 
 When a client receives a token, and it needs to transform or/and enhance the permissions of the token, the client will send a token request to the AS, and include the received token or tokens to be embedded in the newly issued token that contains the transformed token details or permissions.
 
-The Client requests a token by sending an authorization request to the authorization server’s token endpoint and include the following parameters in a JSON payload:
+The Client requests a token by sending an embedded tokens request to the authorization server’s token endpoint and include the following parameters in a JSON payload:
 
 grant_type (REQUIRED)
 Carries the new grant type to indicate to the token endpoint that the provided token(s) to be embedded into the newly issued token. The parameter value MUST be urn:ietf:params:oauth:grant-type:embedded-tokens
@@ -212,7 +212,7 @@ The following is an example for a JWT token with a reference to the token:
 
 ## Embedded Tokens Error Response
 
-If the authorization fails to validate the embedded token, then the authorization server MUST construct an error response, as specified in section 5.2 of RFC6749. The value of the error parameter MUST be invalid_embedded_token error code.
+If the authorization server fails to validate the embedded token, then the authorization server MUST construct an error response, as specified in section 5.2 of RFC6749. The value of the error parameter MUST be invalid_embedded_token error code.
 
 The authorization server MAY include additional information regarding the reasons for the error using the error_description as discussed in Section 5.2 of [RFC6749].
 
@@ -248,7 +248,7 @@ Holds the hash value of the token using the algorithm defined in the "alg" claim
 
 # Security Considerations
 
-The entity handling the incoming authorization request MUST validate the token and ensure that it is coming from a trusted entity, before attempting to embed that into a newly issued JWT.
+The entity handling the incoming embedded tokens request MUST validate the token and ensure that it is coming from a trusted entity, before attempting to embed that into a newly issued JWT.
 
 
 # IANA Considerations
