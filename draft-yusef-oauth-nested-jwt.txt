@@ -4,8 +4,8 @@
 
 Web Authorization Protocol                                   G. D. Marco
 Internet-Draft         Dipartimento per la trasformazione digitale Italy
-Intended status: Informational                         16 September 2023
-Expires: 19 March 2024
+Intended status: Informational                         20 September 2023
+Expires: 23 March 2024
 
 
                   JSON Web Token (JWT) Embedded Tokens
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 March 2024.
+   This Internet-Draft will expire on 23 March 2024.
 
 Copyright Notice
 
@@ -74,12 +74,12 @@ Table of Contents
      2.2.  Network Service Mesh
      2.3.  Multiple Subject for same Subject
      2.4.  Multiple tokens for multiple resources
-   3.  Authorization Request and Response
-     3.1.  Authorization Request
-     3.2.  Authorization Successful Response
+   3.  Embedded Tokens Request and Response
+     3.1.  Embedded Tokens Request
+     3.2.  Embedded Tokens Successful Response
        3.2.1.  Embedded Tokens By Value
        3.2.2.  Embedded Tokens By Reference
-     3.3.  Authorization Error Response
+     3.3.  Embedded Tokens Error Response
    4.  JSON Web Token Claims
      4.1.  "tokens" Claim
        4.1.1.  "type" Claim
@@ -169,7 +169,7 @@ Table of Contents
    information, related on the main subject, necessary for the
    operation.
 
-3.  Authorization Request and Response
+3.  Embedded Tokens Request and Response
 
    This section describes the mechanism to request an existing token or
    tokens to be embedded in a new token.  The mechanism defines a new
@@ -181,7 +181,7 @@ Table of Contents
    trusted entity can then issue the tokens in the format specified in
    section 4; see the examples provided in sections 3.2.1 or 3.2.2.
 
-3.1.  Authorization Request
+3.1.  Embedded Tokens Request
 
    When a client receives a token, and it needs to transform or/and
    enhance the permissions of the token, the client will send a token
@@ -223,7 +223,7 @@ Table of Contents
    { "alg": "HS256", "typ": "JWT" } . { "sub": "2345678901", "name":
    "Alex Doe", "iat": 1516239022, "jti": "XFEXbSC0xiMu" }
 
-3.2.  Authorization Successful Response
+3.2.  Embedded Tokens Successful Response
 
    Before issuing the requested token, the authorization server MUST
    ensure that the request is valid and that the embedded token(s)
@@ -275,7 +275,7 @@ Table of Contents
    "68e439fd95964da902a8654d47c51d6bc0a7791ea9895173989b263374a9a125" }
    "jti": "XFEXbSC0xiMu" } ] }
 
-3.3.  Authorization Error Response
+3.3.  Embedded Tokens Error Response
 
    If the authorization fails to validate the embedded token, then the
    authorization server MUST construct an error response, as specified
