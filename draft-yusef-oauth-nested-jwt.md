@@ -93,13 +93,13 @@ A JWT may embeds tokens for different audiences and scopes.
 
 An Authorization Server issues a JWT Token that contains multiple tokens. Each token has a specialized set of attributes and values. The tokens can be used by the client to consume protected resources or to obtain access tokens through a token exchange mechanism, over different domains, releasing the minimum possible number of information, related on the main subject, necessary for the operation.
 
-# Authorization Request and Response
+# Embedded Tokens Request and Response
 
 This section describes the mechanism to request an existing token or tokens to be embedded in a new token. The mechanism defines a new grant type embedded-tokens for this purpose.
 
 In some cases, the embedding of tokens into a new token could be done locally, if that entity is trusted to so. If this is the case, then this request/response process defined below is not needed, and the trusted entity can then issue the tokens in the format specified in section 4; see the examples provided in sections 3.2.1 or 3.2.2.
 
-## Authorization Request
+## Embedded Tokens Request
 
 When a client receives a token, and it needs to transform or/and enhance the permissions of the token, the client will send a token request to the AS, and include the received token or tokens to be embedded in the newly issued token that contains the transformed token details or permissions.
 
@@ -147,7 +147,7 @@ The following is the decoded example embedded token in the above example:
 }
 
 
-## Authorization Successful Response
+## Embedded Tokens Successful Response
 
 Before issuing the requested token, the authorization server MUST ensure that the request is valid and that the embedded token(s) provided in the subject_token is coming from a trusted and approved entity
 
@@ -210,7 +210,7 @@ The following is an example for a JWT token with a reference to the token:
   ]
 }
 
-## Authorization Error Response
+## Embedded Tokens Error Response
 
 If the authorization fails to validate the embedded token, then the authorization server MUST construct an error response, as specified in section 5.2 of RFC6749. The value of the error parameter MUST be invalid_embedded_token error code.
 
