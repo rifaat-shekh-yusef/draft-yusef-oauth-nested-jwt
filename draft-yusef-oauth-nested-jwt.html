@@ -1309,7 +1309,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-embedded-tokens-request" class="section-name selfRef">Embedded Tokens Request</a>
         </h3>
 <p id="section-3.1-1">When a client receives a token, and it needs to transform or/and enhance the permissions of the token, the client will send a token request to the AS, and include the received token or tokens to be embedded in the newly issued token that contains the transformed token details or permissions.<a href="#section-3.1-1" class="pilcrow">¶</a></p>
-<p id="section-3.1-2">The Client requests a token by sending an authorization request to the authorization server’s token endpoint and include the following parameters in a JSON payload:<a href="#section-3.1-2" class="pilcrow">¶</a></p>
+<p id="section-3.1-2">The Client requests a token by sending an embedded tokens request to the authorization server’s token endpoint and include the following parameters in a JSON payload:<a href="#section-3.1-2" class="pilcrow">¶</a></p>
 <p id="section-3.1-3">grant_type (REQUIRED)
 Carries the new grant type to indicate to the token endpoint that the provided token(s) to be embedded into the newly issued token. The parameter value MUST be urn:ietf:params:oauth:grant-type:embedded-tokens
 tokens (REQUIRED)
@@ -1419,7 +1419,7 @@ The request MAY include any of the following parameters, defined in Section 2.1 
         <h3 id="name-embedded-tokens-error-respo">
 <a href="#section-3.3" class="section-number selfRef">3.3. </a><a href="#name-embedded-tokens-error-respo" class="section-name selfRef">Embedded Tokens Error Response</a>
         </h3>
-<p id="section-3.3-1">If the authorization fails to validate the embedded token, then the authorization server MUST construct an error response, as specified in section 5.2 of RFC6749. The value of the error parameter MUST be invalid_embedded_token error code.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
+<p id="section-3.3-1">If the authorization server fails to validate the embedded token, then the authorization server MUST construct an error response, as specified in section 5.2 of RFC6749. The value of the error parameter MUST be invalid_embedded_token error code.<a href="#section-3.3-1" class="pilcrow">¶</a></p>
 <p id="section-3.3-2">The authorization server MAY include additional information regarding the reasons for the error using the error_description as discussed in Section 5.2 of [RFC6749].<a href="#section-3.3-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1487,7 +1487,7 @@ The request MAY include any of the following parameters, defined in Section 2.1 
       <h2 id="name-security-considerations">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-5-1">The entity handling the incoming authorization request MUST validate the token and ensure that it is coming from a trusted entity, before attempting to embed that into a newly issued JWT.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">The entity handling the incoming embedded tokens request MUST validate the token and ensure that it is coming from a trusted entity, before attempting to embed that into a newly issued JWT.<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="iana-considerations">
