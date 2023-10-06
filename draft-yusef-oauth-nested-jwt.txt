@@ -4,8 +4,8 @@
 
 Web Authorization Protocol                                   G. D. Marco
 Internet-Draft         Dipartimento per la trasformazione digitale Italy
-Intended status: Informational                         20 September 2023
-Expires: 23 March 2024
+Intended status: Informational                            6 October 2023
+Expires: 8 April 2024
 
 
                   JSON Web Token (JWT) Embedded Tokens
@@ -14,8 +14,8 @@ Expires: 23 March 2024
 Abstract
 
    This specification defines a mechanism for embedding tokens into a
-   JWT token.  The JWT token and the embedded tokens are issued by
-   different issuers.
+   JWT token.  The JWT token and the embedded tokens are issued by one
+   or more issuers.
 
 About This Document
 
@@ -49,7 +49,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 March 2024.
+   This Internet-Draft will expire on 8 April 2024.
 
 Copyright Notice
 
@@ -97,8 +97,8 @@ Table of Contents
    that need to embed tokens into another JWT token.
 
    This specification defines a mechanism for embedding tokens into a
-   JWT token.  The JWT token and the embedded tokens are issued by
-   different issuers.
+   JWT token.  The JWT token and the embedded tokens are issued by one
+   or more issuers.
 
    Such a mechanism allows for a proper auditing trail that allows the
    Resource Server to identify who accessed what resource and on behalf

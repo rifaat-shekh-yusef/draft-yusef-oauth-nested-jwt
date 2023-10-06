@@ -7,28 +7,28 @@
 <title>JSON Web Token (JWT) Embedded Tokens</title>
 <meta content="Giuseppe De Marco" name="author">
 <meta content="
-       This specification defines a mechanism for embedding tokens into a JWT token. The JWT token and the embedded tokens are issued by different issuers. 
+       This specification defines a mechanism for embedding tokens into a JWT token. The JWT token and the embedded tokens are issued by one or more issuers. 
     " name="description">
-<meta content="xml2rfc 3.18.0" name="generator">
+<meta content="xml2rfc 3.18.1" name="generator">
 <meta content="token" name="keyword">
 <meta content="jwt" name="keyword">
 <meta content="embedded" name="keyword">
 <meta content="draft-yusef-oauth-nested-jwt-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.18.0
+  xml2rfc 3.18.1
     Python 3.11.5
     ConfigArgParse 1.5.3
     google-i18n-address 3.1.0
     intervaltree 3.1.0
     Jinja2 3.1.2
     lxml 4.9.3
-    platformdirs 3.10.0
+    platformdirs 3.11.0
     pycountry 22.3.5
     PyYAML 6.0
     requests 2.31.0
     setuptools 67.7.2
     six 1.16.0
-    wcwidth 0.2.6
+    wcwidth 0.2.8
 -->
 <link href="draft-yusef-oauth-nested-jwt.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -651,7 +651,7 @@ sub, sup {
 }
 #toc nav li {
   line-height: 1.3em;
-  margin: 0.75em 0;
+  margin: 2px 0;
   padding-left: 1.2em;
   text-indent: -1.2em;
 }
@@ -744,7 +744,7 @@ hr.addr {
     z-index: 2;
     top: 0;
     right: 0;
-    padding: 0;
+    padding: 1px 0 0 0;
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
@@ -868,16 +868,13 @@ hr.addr {
     border-top: none;
     padding-top: 0;
   }
-  figure, pre {
+  figure, pre, .vcard {
     page-break-inside: avoid;
-  }
-  figure {
-    overflow: scroll;
   }
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
   }
-  h2+*, h3+*, h4+*, h5+*, h6+* {
+  :is(h2, h3, h4, h5, h6)+*, dd {
     page-break-before: avoid;
   }
   pre {
@@ -890,6 +887,9 @@ hr.addr {
   }
   td {
     border-top: 1px solid #ddd;
+  }
+  .toplink {
+    display: none;
   }
 }
 
@@ -991,28 +991,6 @@ address div.right {
   text-align: right;
 }
 
-/* Give the table caption label the same styling as the figcaption */
-
-@media print {
-  .toplink {
-    display: none;
-  }
-
-  /* avoid overwriting the top border line with the ToC header */
-  #toc {
-    padding-top: 1px;
-  }
-
-  /* Avoid page breaks inside dl and author address entries */
-  dd {
-    page-break-before: avoid;
-  }
-  .vcard {
-    page-break-inside: avoid;
-  }
-
-}
-
 /* Dark mode. */
 @media (prefers-color-scheme: dark) {
 :root {
@@ -1049,11 +1027,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">JWT Embedded Tokens</td>
-<td class="right">September 2023</td>
+<td class="right">October 2023</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Marco</td>
-<td class="center">Expires 23 March 2024</td>
+<td class="center">Expires 8 April 2024</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1066,12 +1044,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-yusef-oauth-nested-jwt-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2023-09-20" class="published">20 September 2023</time>
+<time datetime="2023-10-06" class="published">6 October 2023</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2024-03-23">23 March 2024</time></dd>
+<dd class="expires"><time datetime="2024-04-08">8 April 2024</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1084,7 +1062,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">JSON Web Token (JWT) Embedded Tokens</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">This specification defines a mechanism for embedding tokens into a JWT token. The JWT token and the embedded tokens are issued by different issuers.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">This specification defines a mechanism for embedding tokens into a JWT token. The JWT token and the embedded tokens are issued by one or more issuers.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1121,7 +1099,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 23 March 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 8 April 2024.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1238,7 +1216,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
 <p id="section-1-1">JWT is a mechanism that is used to transfer claims between two parties across security domains. There are a number of use cases that need to embed tokens into another JWT token.<a href="#section-1-1" class="pilcrow">¶</a></p>
-<p id="section-1-2">This specification defines a mechanism for embedding tokens into a JWT token. The JWT token and the embedded tokens are issued by different issuers.<a href="#section-1-2" class="pilcrow">¶</a></p>
+<p id="section-1-2">This specification defines a mechanism for embedding tokens into a JWT token. The JWT token and the embedded tokens are issued by one or more issuers.<a href="#section-1-2" class="pilcrow">¶</a></p>
 <p id="section-1-3">Such a mechanism allows for a proper auditing trail that allows the Resource Server to identify who accessed what resource and on behalf of whom. In some cases, this allows the service consuming such a token to present some of the information contained in the nested token or claims to the end user in real-time. In addition, in some cases, this allows the Resource Server to apply authorization policies based on who requested the access to the resource and on behalf of whom is the request.<a href="#section-1-3" class="pilcrow">¶</a></p>
 <div id="terminology">
 <section id="section-1.1">
