@@ -44,7 +44,7 @@ informative:
 
 --- abstract
 
-This specification defines a mechanism for embedding tokens into a JWT token. The JWT token and the embedded tokens are issued by different issuers.
+This specification defines a mechanism for embedding tokens into a JWT token. The JWT token and the embedded tokens are issued by one or more issuers.
 
 
 --- middle
@@ -53,7 +53,7 @@ This specification defines a mechanism for embedding tokens into a JWT token. Th
 
 JWT is a mechanism that is used to transfer claims between two parties across security domains. There are a number of use cases that need to embed tokens into another JWT token.
 
-This specification defines a mechanism for embedding tokens into a JWT token. The JWT token and the embedded tokens are issued by different issuers.
+This specification defines a mechanism for embedding tokens into a JWT token. The JWT token and the embedded tokens are issued by one or more issuers.
 
 Such a mechanism allows for a proper auditing trail that allows the Resource Server to identify who accessed what resource and on behalf of whom. In some cases, this allows the service consuming such a token to present some of the information contained in the nested token or claims to the end user in real-time. In addition, in some cases, this allows the Resource Server to apply authorization policies based on who requested the access to the resource and on behalf of whom is the request.
 
